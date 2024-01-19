@@ -14,18 +14,19 @@ def split_string(text):
 # Initialisiere einen Platzhalter
 placeholder = st.empty()
 
-content = st.text_input("Enter your text for speed reading here: ")
-
-pause_text_input = st.text_input ("Delay", value="")
-pause_slider = st.slider("Delay in seconds", min_value=0.1, max_value=5.0, value=0.5, step=0.1)
+with st.sidebar:
+    content = st.text_input("Enter your text for speed reading here: ")
+    pause_text_input = st.text_input ("Delay", value="")
+    pause_slider = st.slider("Delay in seconds", min_value=0.1, max_value=5.0, value=0.5, step=0.1)
+    number_of_words_slider = st.slider("Number of words to show", min_value=1, max_value=10, value=3, step=1)
+    number_of_words = number_of_words_slider
 
 if not pause_text_input:
     Pause = float(pause_slider)
 else:
     Pause = float(pause_slider)
 
-number_of_words_slider = st.slider("Number of words to show", min_value=1, max_value=10, value=3, step=1)
-number_of_words=number_of_words_slider
+
 
 # Check if there is content to display
 if content:
